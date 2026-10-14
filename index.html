@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f8fc">
+  <meta name="description" content="Practise HR interviews for your first software job with a friendly AI coach running locally on your computer.">
+  <title>InterviewMate AI — Your Personal HR Interview Coach</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="InterviewMate AI home">
+      <span class="brand-mark" aria-hidden="true">✳</span>
+      <span>InterviewMate <span class="brand-ai">AI</span></span>
+    </a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+      <a class="nav-link active" href="#home">Home</a>
+      <a class="nav-link" href="#questions">HR Questions</a>
+      <a class="nav-link" href="#practice">Practice Interview</a>
+      <a class="nav-link" href="#progress">My Progress</a>
+      <a class="nav-link" href="#about">About</a>
+    </nav>
+    <a class="button button-primary header-cta" href="#practice">Start Practising <span aria-hidden="true">→</span></a>
+  </header>
+
+  <main>
+    <section class="hero section-wrap" id="home">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> YOUR FIRST JOB, YOUR NEXT CHAPTER</span>
+        <h1>Your Next Interview<br>Starts <span>Here.</span></h1>
+        <p>Practise HR interviews, improve your communication, and build confidence for your first job.</p>
+        <div class="hero-actions">
+          <a class="button button-primary button-large" href="#questions">Start HR Practice <span aria-hidden="true">→</span></a>
+          <button class="button button-secondary button-large" id="hero-mock">◉ &nbsp; Take a Mock Interview</button>
+        </div>
+        <div class="hero-trust"><span class="avatar-stack" aria-hidden="true"><i>✦</i><i>✓</i><i>AI</i></span><span>Made for freshers taking their first step</span></div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of a welcoming interview workspace" role="img">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="art-sun"></div>
+        <div class="art-window"><div class="window-sky"></div><div class="window-building building-one"></div><div class="window-building building-two"></div><div class="window-plant">✦</div></div>
+        <div class="art-table"></div>
+        <div class="art-laptop"><div class="laptop-screen"><span class="screen-spark">✳</span><span class="screen-line"></span><span class="screen-line short"></span><span class="screen-chip">YOU'VE GOT THIS</span></div><div class="laptop-base"></div></div>
+        <div class="art-mug">☕</div>
+        <div class="art-note"><span class="note-check">✓</span><span><strong>One question at a time</strong><small>Your pace, your progress</small></span></div>
+        <div class="art-caption">A little practice makes a big difference.</div>
+      </div>
+      <div class="feature-strip" aria-label="Practice benefits">
+        <div class="feature"><span class="feature-icon icon-blue">✧</span><span><strong>Beginner friendly</strong><small>Simple, step-by-step help</small></span></div>
+        <div class="feature"><span class="feature-icon icon-purple">♧</span><span><strong>Fresher focused</strong><small>Made for your first job</small></span></div>
+        <div class="feature"><span class="feature-icon icon-green">◎</span><span><strong>Instant feedback</strong><small>Learn as you practise</small></span></div>
+        <div class="feature"><span class="feature-icon icon-orange">◷</span><span><strong>Practice anytime</strong><small>Your local AI coach</small></span></div>
+      </div>
+    </section>
+
+    <section class="section-wrap practice-section" id="practice">
+      <div class="section-heading">
+        <div><span class="eyebrow">YOUR PRACTICE SPACE</span><h2>Let’s get you interview-ready.</h2><p>Ask a question, explore a topic, or try a mock interview. You’ve got this.</p></div>
+        <div class="connection-pill" id="connection-status" data-state="checking"><span class="status-dot"></span><span id="connection-label">Checking your local AI...</span></div>
+      </div>
+      <div class="practice-layout">
+        <aside class="practice-sidebar">
+          <div class="sidebar-label">CHOOSE YOUR PRACTICE</div>
+          <button class="practice-tab selected" data-practice="coach"><span class="tab-icon">✳</span><span><strong>Ask your coach</strong><small>Explore any HR question</small></span><span class="tab-arrow">→</span></button>
+          <button class="practice-tab" data-practice="mock"><span class="tab-icon">◉</span><span><strong>Mock interview</strong><small>Practise under pressure</small></span><span class="tab-arrow">→</span></button>
+          <div class="sidebar-divider"></div>
+          <div class="sidebar-label">YOUR PROFILE</div>
+          <div class="profile-card"><span class="profile-avatar">🎓</span><span><strong>Future software developer</strong><small>4th-year B.Tech · CSE (AI)</small><small class="profile-note">Fresher · Starting from here</small></span></div>
+          <div class="local-note"><span>🔒</span><p><strong>Your practice stays on your device.</strong><br>Your chats go only to Ollama running on your computer.</p></div>
+        </aside>
+        <div class="chat-card">
+          <div class="chat-header">
+            <div class="coach-identity"><div class="coach-avatar">✳<span class="online-dot"></span></div><div><strong>Your Interview Coach</strong><small><span class="live-dot"></span> Ready when you are</small></div></div>
+            <div class="chat-controls"><label class="model-control"><span>MODEL</span><select id="model-select" aria-label="Choose Ollama model"><option value="qwen2.5:3b">Qwen 2.5 · 3B</option><option value="llama3.2:latest">Llama 3.2</option></select></label><button class="icon-button" id="clear-chat" title="Clear conversation" aria-label="Clear conversation">⌫</button></div>
+          </div>
+          <div class="mock-settings" id="mock-settings" hidden>
+            <label>Difficulty <select id="difficulty-select"><option>Beginner</option><option>Intermediate</option><option>Realistic Interview</option></select></label>
+            <label>Questions <select id="length-select"><option value="5">5 questions</option><option value="7">7 questions</option><option value="10">10 questions</option></select></label>
+            <button class="button button-primary button-small" id="start-mock">Start interview <span aria-hidden="true">→</span></button>
+          </div>
+          <div class="chat-history" id="chat-history" role="log" aria-live="polite" aria-relevant="additions text"></div>
+          <div class="suggested-wrap" id="suggested-wrap"><div class="suggested-label">NOT SURE WHERE TO START? TRY ONE OF THESE</div><div class="suggestions" id="suggestions"></div></div>
+          <div class="chat-error" id="chat-error" role="alert" hidden></div>
+          <form class="composer" id="chat-form">
+            <textarea id="message-input" rows="1" placeholder="Ask me anything about your interview..." aria-label="Write a message" maxlength="4000"></textarea>
+            <button class="send-button" id="send-button" type="submit" aria-label="Send message"><span>Send</span><span aria-hidden="true">↑</span></button>
+          </form>
+          <div class="chat-footnote">Your coach uses Ollama on your computer. Check sample details are true for you before using them.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wrap categories-section" id="questions">
+      <div class="section-heading category-heading"><div><span class="eyebrow">A LITTLE PRACTICE GOES A LONG WAY</span><h2>What would you like to work on?</h2><p>Pick a topic to get a simple explanation and a fresher-friendly example answer.</p></div><a href="#practice" class="text-link">Ask your coach <span>→</span></a></div>
+      <div class="category-grid" id="category-grid"></div>
+    </section>
+
+    <section class="section-wrap progress-section" id="progress">
+      <div class="section-heading"><div><span class="eyebrow">YOUR JOURNEY SO FAR</span><h2>Every practice counts.</h2><p>A private progress snapshot that grows as you practise.</p></div><button class="text-button" id="reset-progress">Reset progress</button></div>
+      <div class="stats-grid">
+        <article class="stat-card"><span class="stat-icon stat-blue">✧</span><strong class="stat-number" id="stat-questions">0</strong><span class="stat-title">Questions practised</span><small id="stat-questions-note">Your journey starts here.</small></article>
+        <article class="stat-card"><span class="stat-icon stat-purple">◉</span><strong class="stat-number" id="stat-mocks">0</strong><span class="stat-title">Mock interviews completed</span><small id="stat-mocks-note">Ready when you are.</small></article>
+        <article class="stat-card"><span class="stat-icon stat-green">↗</span><strong class="stat-number" id="stat-topics">0</strong><span class="stat-title">Topics explored</span><small>Across your practice sessions</small></article>
+        <article class="stat-card"><span class="stat-icon stat-orange">◎</span><strong class="stat-number" id="stat-answers">0</strong><span class="stat-title">Answers reviewed</span><small>Real mock-interview attempts</small></article>
+      </div>
+      <div class="progress-bottom">
+        <article class="insight-card"><div class="insight-heading"><span class="insight-icon">✦</span><div><strong>Answer strengths</strong><small>From real mock-interview feedback</small></div></div><ul id="strong-answers" class="insight-list"><li>Finish a mock answer to see coach feedback here.</li></ul></article>
+        <article class="insight-card"><div class="insight-heading"><span class="insight-icon insight-purple">◎</span><div><strong>Feedback to practise</strong><small>Repeated areas from mock feedback</small></div></div><ul id="improve-signals" class="insight-list"><li>Your feedback patterns will appear here.</li></ul></article>
+        <article class="insight-card"><div class="insight-heading"><span class="insight-icon insight-blue">↗</span><div><strong>Topics to explore</strong><small>Start with less-practised categories</small></div></div><ul id="improve-topics" class="insight-list"><li>Try a basic HR question to get started.</li></ul></article>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="section-wrap about-inner"><div><span class="eyebrow">A FRIENDLY FIRST STEP</span><h2>Built for your first interview.</h2><p>InterviewMate helps you practise with simple explanations and honest, constructive coaching. There’s no need to pretend you have work experience. Start with what you really know: your studies, projects, and willingness to learn.</p><a href="#practice" class="button button-light">Meet your coach <span>→</span></a></div><div class="about-card"><span class="about-spark">✳</span><blockquote>“You don’t need to be perfect. You just need a place to practise.”</blockquote><span class="about-caption">Your InterviewMate coach</span></div></div>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="brand footer-brand" href="#home"><span class="brand-mark">✳</span><span>InterviewMate <span class="brand-ai">AI</span></span></a><span>Made with care for your first career step.</span><a href="#about">About InterviewMate</a></footer>
+</body>
+</html>
